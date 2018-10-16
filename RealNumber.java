@@ -14,6 +14,7 @@ public class RealNumber{
 	}
 
 	public String toString() {
-		return 
+		return "";
+	}
 
 }
