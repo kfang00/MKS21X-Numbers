@@ -12,5 +12,11 @@ public class RationalNumber extends RealNumber{
 		den = d;
 	}
 	
+	public int getNum() {
+		return num;
+	}
 
+	public int getDen() {
+		return den;
+	}
 }
