@@ -3,7 +3,7 @@ public class RationalNumber extends RealNumber{
 	private int den;
 
 	public RationalNumber() {
-		super(15);
+		super(15.0);
 	}
 
 	public RationalNumber(int n, int d) {
@@ -19,4 +19,14 @@ public class RationalNumber extends RealNumber{
 	public int getDen() {
 		return den;
 	}
+
+	public String makeFrac(int n, int d) {
+		return "";
+	}
+
+	public String toString() {
+		return "";
+	}
+
+	
 }
