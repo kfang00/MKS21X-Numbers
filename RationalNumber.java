@@ -38,8 +38,7 @@ public class RationalNumber extends RealNumber {
   	*and denominator as this RationalNumber but reversed.
   	*/
   	public RationalNumber reciprocal(){
-    		RationalNumber ayy = new RationalNumber(this.getDenominator(), this.getNumerator()) {
-		return ayy.getValue();
+		return new RationalNumber(this.getDenominator(), this.getNumerator());
   	}
   	/**
   	*@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
@@ -63,7 +62,6 @@ public class RationalNumber extends RealNumber {
   	*/
   	private static int gcd(int a, int b){
     	/*use euclids method or a better one*/
-    	http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
     		int x = 0;
 		int y = 0;
 		int r = 0;
@@ -89,6 +87,8 @@ public class RationalNumber extends RealNumber {
   	*reduced after construction.
   	*/
   	private void reduce(){
+		numerator = numerator / gcd(numerator, denominator);
+		denominator = denominator / gcd(numerator, denominator);
 
   	}
   	/******************Operations Return a new RationalNumber!!!!****************/
@@ -96,21 +96,23 @@ public class RationalNumber extends RealNumber {
   	*Return a new RationalNumber that is the product of this and the other
   	*/
   	public RationalNumber multiply(RationalNumber other){
-    		return null;
+		return new RationalNumber((this.getNumerator() * other.getNumerator()),  (this.getDenominator() * other.getDenominator()));
   	}
 
   	/**
   	*Return a new RationalNumber that is the this divided by the other
   	*/
   	public RationalNumber divide(RationalNumber other){
-    		return null;
+		return new RationalNumber((this.getNumerator() * other.getDenominator()),  (this.getDenominator() * other.getNumerator()));
   	}
 
   	/**
   	*Return a new RationalNumber that is the sum of this and the other
   	*/
   	public RationalNumber add(RationalNumber other){
-    		return null;
+    		this.reduce();
+		other.reduce
+		return null;
   	}
   	/**
   	*Return a new RationalNumber that this minus the other
