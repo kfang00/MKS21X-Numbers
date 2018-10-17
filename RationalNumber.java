@@ -110,14 +110,18 @@ public class RationalNumber extends RealNumber {
   	*Return a new RationalNumber that is the sum of this and the other
   	*/
   	public RationalNumber add(RationalNumber other){
-    		this.reduce();
-		other.reduce
-		return null;
+    		int comden = this.getDenominator() * other.getDenominator();
+		int newnum1 = this.getNumerator() * other.getDenominator();
+		int newnum2 = other.getNumerator() * this.getDenominator();
+		return new RationalNumber((newnum1 + newnum2),  comden);
   	}
   	/**
   	*Return a new RationalNumber that this minus the other
   	*/
   	public RationalNumber subtract(RationalNumber other){
-    		return null;
+    		int comden = this.getDenominator() * other.getDenominator();
+		int newnum1 = this.getNumerator() * other.getDenominator();
+		int newnum2 = other.getNumerator() * this.getDenominator();
+		return new RationalNumber((newnum1 - newnum2),  comden);
   	}
 } 
