@@ -11,28 +11,28 @@ public class RealNumber{
   	public double add(RealNumber other){
      		//other can be ANY RealNumber, including a RationalNumber
      		//or other subclasses of RealNumber (that aren't written yet)
-     		return this + other;
+     		return (this.getValue() + other.getValue());
   	}
 
   	/*
   	*Return the product of this and the other
   	*/
   	public double multiply(RealNumber other){
-   		return this * other;
+   		return (this.getValue() * other.getValue());
   	}
 
   	/*
   	*Return the this divided by the other
   	*/
   	public double divide(RealNumber other){
-    		return this / other;
+    		return (this.getValue() / other.getValue());
   	}
  
   	/*
   	*Return the this minus the other
   	*/
   	public double subtract(RealNumber other){
-    		return this - other;
+    		return (this.getValue() - other.getValue());
   	}
 
 
