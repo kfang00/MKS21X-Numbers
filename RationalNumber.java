@@ -8,6 +8,7 @@ public class RationalNumber extends RealNumber {
   	*/
   	public RationalNumber(int nume, int deno){
     		super(0.0);//this value is ignored! 
+		this.reduce();
 		numerator = nume;
 		denominator = deno;
 		if (deno == 0) {
@@ -18,7 +19,7 @@ public class RationalNumber extends RealNumber {
   	}
 
   	public double getValue(){
-    		return numerator / denominator + 0.0;
+    		return ((getNumerator() + 0.0) / getDenominator());
   	}
 
   	/**
@@ -38,7 +39,9 @@ public class RationalNumber extends RealNumber {
   	*and denominator as this RationalNumber but reversed.
   	*/
   	public RationalNumber reciprocal(){
-		return new RationalNumber(this.getDenominator(), this.getNumerator());
+		RationalNumber ayy = new RationalNumber(this.getDenominator(), this.getNumerator());
+		ayy.reduce();
+		return ayy;
   	}
   	/**
   	*@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
@@ -87,8 +90,10 @@ public class RationalNumber extends RealNumber {
   	*reduced after construction.
   	*/
   	private void reduce(){
-		numerator = numerator / gcd(numerator, denominator);
-		denominator = denominator / gcd(numerator, denominator);
+		if (gcd(numerator, denominator) != 0) {
+			numerator = numerator / gcd(numerator, denominator);
+			denominator = denominator / gcd(numerator, denominator);
+		}
 
   	}
   	/******************Operations Return a new RationalNumber!!!!****************/
