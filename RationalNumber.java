@@ -8,18 +8,26 @@ public class RationalNumber extends RealNumber {
   	*/
   	public RationalNumber(int nume, int deno){
     		super(0.0);//this value is ignored! 
-		this.reduce();
 		numerator = nume;
 		denominator = deno;
+		this.reduce();
 		if (deno == 0) {
 			numerator = 0;
 			denominator = 1;
+		}
+		if (deno < 0) {
+			denominator = (0 - denominator);
+			numerator = (0 - numerator);
+		}
+		if ((deno < 0) && (nume < 0)) {
+			denominator = (0 - denominator);
+			numerator = (0 - numerator);
 		}
 
   	}
 
   	public double getValue(){
-    		return ((getNumerator() + 0.0) / getDenominator());
+    		return ((double) getNumerator()  / getDenominator());
   	}
 
   	/**
@@ -40,7 +48,6 @@ public class RationalNumber extends RealNumber {
   	*/
   	public RationalNumber reciprocal(){
 		RationalNumber ayy = new RationalNumber(this.getDenominator(), this.getNumerator());
-		ayy.reduce();
 		return ayy;
   	}
   	/**
@@ -76,12 +83,12 @@ public class RationalNumber extends RealNumber {
 			x = b;
 			y = a;
 		}
-		while(x != 0) {
-			r = a % b;
+		while(y != 0) {
+			r = x % y;
 			x = y;
 			y = r;
 		}
-		return y;
+		return x;
   	}
 
   	/**
@@ -90,9 +97,10 @@ public class RationalNumber extends RealNumber {
   	*reduced after construction.
   	*/
   	private void reduce(){
-		if (gcd(numerator, denominator) != 0) {
-			numerator = numerator / gcd(numerator, denominator);
-			denominator = denominator / gcd(numerator, denominator);
+		int stored = gcd(numerator, denominator);
+		if ((denominator != 0) && (numerator != 0)) {
+			numerator = (numerator / stored);
+			denominator = (denominator / stored);
 		}
 
   	}
